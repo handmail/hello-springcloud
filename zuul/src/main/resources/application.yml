@@ -1,0 +1,27 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7002/eureka
+  healthcheck:
+    enabled: true
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    api-a:
+      path: /sp/*
+      serviceId: service-provider
+
+info:
+  app.name: ${spring.application.name}
+  company.name: helloworld
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

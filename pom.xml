@@ -15,6 +15,7 @@
         <module>service-provider</module>
         <module>service-provider2</module>
         <module>ribbon</module>
+        <module>zuul</module>
     </modules>
 
     <parent>
