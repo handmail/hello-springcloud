@@ -1,6 +1,6 @@
 package com;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,11 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HystrixController {
-    @Autowired
-    HystrixService hystrixService;
     @RequestMapping(value = "/hello", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public String hello(@RequestParam String message) {
-        return hystrixService.hello(message);
+    @HystrixCommand(fallbackMethod = "helloError")
+    public String hello(@RequestParam Long id) {
+        if (id == 1) {
+            throw new RuntimeException("error!!");
+        }
+        return "hello";
+    }
+
+    public String helloError(Long id) {
+        return "exception id=" + id;
     }
 }
