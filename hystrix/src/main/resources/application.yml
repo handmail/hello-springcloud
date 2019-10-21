@@ -1,0 +1,21 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: hystrix
+
+eureka:
+  instance:
+    appname: hystrix
+    instance-id: ${spring.application.name}:${server.port}:@project.version@
+    #prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7002/eureka
+
+info:
+  app.name: hystrix
+  company.name: helloworld
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

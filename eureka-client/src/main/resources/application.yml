@@ -1,0 +1,21 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: eureka-client
+
+eureka:
+  instance:
+    appname: eureka-client
+    instance-id: ${spring.application.name}:${server.port}:@project.version@
+    #prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7002/eureka
+
+info:
+  app.name: eureka-client
+  company.name: helloworld
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

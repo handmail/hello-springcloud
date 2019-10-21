@@ -1,0 +1,14 @@
+**/*iml*
+*idea*
+*.class
+**/target/**
+**/log**
+**/logs/**
+*.log
+*.pkl
+*.pyc
+build
+dist
+*egg*
+**/scalastyle-output.xml
+*dependency-reduced-pom.xml
