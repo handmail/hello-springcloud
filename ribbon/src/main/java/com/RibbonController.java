@@ -1,6 +1,7 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,10 +17,8 @@ public class RibbonController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @RequestMapping(value = "/hello", produces = "application/json;charset=utf-8")
-    @ResponseBody
+    @GetMapping("/hello")
     public String hello() {
-        System.out.println("ribbon hello");
         return restTemplate.getForObject("http://service-provider/hello", String.class);
     }
 }
