@@ -1,9 +1,5 @@
 server:
-  port: 8006
-
-spring:
-  application:
-    name: zuul
+  port: 8008
 
 eureka:
   client:
@@ -14,14 +10,10 @@ eureka:
   instance:
     prefer-ip-address: true
 
-zuul:
-  routes:
-    api-a:
-      path: /service-provider/*
-      serviceId: service-provider
-
 info:
   app.name: ${spring.application.name}
   company.name: helloworld
-  build.artifactId: @project.artifactId@
-  build.version: @project.version@
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"
+
+from: from client-dev.yml

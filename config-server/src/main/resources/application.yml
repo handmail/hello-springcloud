@@ -1,9 +1,16 @@
 server:
-  port: 8006
+  port: 8007
 
 spring:
   application:
-    name: zuul
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: /export/workspace/hello-springcloud/config-server/conf
 
 eureka:
   client:
@@ -13,12 +20,6 @@ eureka:
     enabled: true
   instance:
     prefer-ip-address: true
-
-zuul:
-  routes:
-    api-a:
-      path: /service-provider/*
-      serviceId: service-provider
 
 info:
   app.name: ${spring.application.name}
