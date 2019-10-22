@@ -89,6 +89,7 @@ spring:
         native:
           searchLocations: /export/workspace/hello-springcloud/config-server/conf
 ```
+测试：http://localhost:8007/client-dev.yml, 可以访问这个文件内容
 
 # config client
 
